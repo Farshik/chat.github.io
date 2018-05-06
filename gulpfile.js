@@ -12,7 +12,7 @@ let gulp 		 = require('gulp'),
 	autoprefixer = require('gulp-autoprefixer');
 
 gulp.task('sass' , function(){
-	return gulp.src('app/sass/*.sass')
+	return gulp.src('app/sass/**/*.sass')
 	.pipe(sass())
 	.pipe(autoprefixer(['last 15 versions' , '> 1%', 'ie 8', 'ie 7'], {cascade:true}))
 	.pipe(gulp.dest('app/css'))
@@ -30,7 +30,7 @@ gulp.task('scripts' , function(){
 });
 
 gulp.task('css-libs' ,['sass'], function(){
-	return gulp.src('app/css/libs.css')
+	return gulp.src('app/css/**/*.css')
 	.pipe(cssnano())
 	.pipe(rename({suffix: '.min'}))
 	.pipe(gulp.dest('app/css'));
